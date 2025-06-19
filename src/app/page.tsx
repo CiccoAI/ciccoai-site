@@ -14,6 +14,7 @@ function OpeningAnimation({ onFinish }: { onFinish: () => void }) {
   const [landed, setLanded] = React.useState(false);
   const [target, setTarget] = React.useState<{x: number, y: number} | null>(null);
   const [textIn, setTextIn] = React.useState(false);
+  const [attempts, setAttempts] = React.useState(0);
 
   React.useEffect(() => {
     function tryGetLogo() {
@@ -24,38 +25,50 @@ function OpeningAnimation({ onFinish }: { onFinish: () => void }) {
           x: rect.left + rect.width / 2,
           y: rect.top + rect.height / 2
         });
+      } else if (attempts < 3) {
+        setTimeout(() => {
+          setAttempts(prev => prev + 1);
+          tryGetLogo();
+        }, 1000);
       } else {
-        setTimeout(tryGetLogo, 100);
+        // If we can't find the logo after 3 attempts, just finish the animation
+        onFinish();
       }
     }
     tryGetLogo();
-  }, []);
+  }, [attempts, onFinish]);
 
   React.useEffect(() => {
     if (!target) return;
     async function sequence() {
-      await controls.start({ scale: 3, x: 0, y: 0, opacity: 1, transition: { duration: 0.01 } });
-      setTextIn(true);
-      await new Promise(res => setTimeout(res, 1000));
-      // Animate to navbar logo position
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      if (target) {
-        await controls.start({
-          scale: 1,
-          x: target.x - centerX,
-          y: target.y - centerY,
-          opacity: 1,
-          transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] }
-        });
+      try {
+        await controls.start({ scale: 3, x: 0, y: 0, opacity: 1, transition: { duration: 0.01 } });
+        setTextIn(true);
+        await new Promise(res => setTimeout(res, 1000));
+        
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        
+        if (target) {
+          await controls.start({
+            scale: 1,
+            x: target.x - centerX,
+            y: target.y - centerY,
+            opacity: 1,
+            transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] }
+          });
+        }
+        
+        setLanded(true);
+        await new Promise(res => setTimeout(res, 1000));
+        onFinish();
+      } catch (error) {
+        // If any animation fails, just finish
+        onFinish();
       }
-      setLanded(true);
-      await new Promise(res => setTimeout(res, 1000));
-      onFinish();
     }
     sequence();
-    // eslint-disable-next-line
-  }, [target]);
+  }, [target, controls, onFinish]);
 
   return (
     <motion.div
@@ -95,6 +108,14 @@ const cardVariant = {
 export default function Home() {
   const [showOpening, setShowOpening] = useState(true);
   const [showMainContent, setShowMainContent] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Wait for the page to be fully loaded
+    if (typeof window !== 'undefined') {
+      setIsLoaded(true);
+    }
+  }, []);
 
   useEffect(() => {
     // Prevent scroll during animation
@@ -135,8 +156,12 @@ export default function Home() {
 
   const handleFinish = () => {
     setShowOpening(false);
-    setTimeout(() => setShowMainContent(true), 50); // Small delay for smoothness
+    setTimeout(() => setShowMainContent(true), 50);
   };
+
+  if (!isLoaded) {
+    return null; // Return nothing until the page is loaded
+  }
 
   return (
     <>
@@ -144,7 +169,7 @@ export default function Home() {
         {showOpening && <OpeningAnimation onFinish={handleFinish} />}
       </AnimatePresence>
       <AnimatePresence>
-        {showMainContent && (
+        {(showMainContent || !showOpening) && (
           <>
             <OrganicShaderBackground />
             <motion.div
