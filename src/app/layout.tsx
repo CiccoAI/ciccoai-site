@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import "@fontsource/orbitron/400.css";
+import "@fontsource/orbitron/700.css";
+import "@fontsource/orbitron/900.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
+import "@fontsource/instrument-sans/700.css";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import Navbar from '../../components/Navbar';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
+      <body className="font-sans antialiased">
+        <Navbar />
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
