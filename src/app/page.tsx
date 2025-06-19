@@ -7,6 +7,7 @@ import LogoGroup from '../../components/LogoGroup';
 import MorphingShape from '../../components/MorphingShape';
 import OrganicShaderBackground from '../../components/OrganicShaderBackground';
 import WhyItWorksSpinner from '../components/WhyItWorksSpinner';
+import Image from 'next/image';
 
 function OpeningAnimation({ onFinish }: { onFinish: () => void }) {
   const controls = useAnimation();
@@ -310,15 +311,17 @@ export default function Home() {
                   <h2 className="section-title section-title--spaced animated-gradient-title mt-6 font-instrument font-medium">About</h2>
                   <div className="w-full max-w-7xl mx-auto px-4 section-content">
                     <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card p-8 md:p-14 flex flex-col md:flex-row items-center gap-10 md:gap-16" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
-                      <img 
+                      <Image 
                         src="/images/Luke Ciccozzi Website Photo.png" 
                         alt="Luke Ciccozzi profile photo" 
                         className="rounded-2xl w-56 h-72 object-cover shadow-xl border-4" 
                         style={{ borderColor: '#a178f0', background: 'white' }}
+                        width={224}
+                        height={288}
                       />
                       <motion.div className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left" variants={cardVariant}>
                         <p className="text-lg md:text-xl mb-6 leading-relaxed !text-white">
-                          I'm Luke Ciccozzi, founder of Cicco.AI. A creative at heart, I discovered AI and was instantly captivated by its potential. My background in architecture taught me systems thinking, while my youth work experience revealed the need for better automation. This inspired me to build practical systems for small to medium-sized businesses. Today, I personally scope and build every system, ensuring it's fast, efficient, and tailored to your workflow.
+                          I&apos;m Luke Ciccozzi, founder of Cicco.AI. A creative at heart, I discovered AI and was instantly captivated by its potential. My background in architecture taught me systems thinking, while my youth work experience revealed the need for better automation. This inspired me to build practical systems for small to medium-sized businesses. Today, I personally scope and build every system, ensuring it&apos;s fast, efficient, and tailored to your workflow.
                         </p>
                         <p className="text-lg md:text-xl font-medium !text-white"><span className="font-medium">Mission:</span> To make advanced automation accessible and genuinely useful for business owners, so you can focus on what matters most.</p>
                       </motion.div>
