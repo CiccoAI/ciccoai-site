@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   images: {
     domains: ['localhost'],
-    unoptimized: true
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   webpack: (config) => {
     config.module.rules.push({
@@ -16,11 +20,8 @@ const nextConfig = {
     return config;
   },
   // Vercel-specific settings
-  generateBuildId: async () => {
-    return 'ciccoai-site'
-  },
   poweredByHeader: false,
   compress: true,
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;
