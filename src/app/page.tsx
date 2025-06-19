@@ -222,7 +222,13 @@ export default function Home() {
                       <div className="flex flex-col items-center justify-center h-1/2 gap-4">
                         <div className="w-16 h-16 aspect-square flex items-center justify-center bg-primary/10 rounded-full border border-primary/20 transition-transform duration-300 group-hover/card:scale-110 group-hover/card:rotate-6">
                           {/* icon */}
-                          <img src="/AI%20Chatbot%20Icon.svg" alt="AI Chatbot Icon" className="w-14 h-14 object-contain" />
+                          <Image 
+                            src="/AI%20Chatbot%20Icon.svg" 
+                            alt="AI Chatbot Icon" 
+                            className="w-14 h-14 object-contain"
+                            width={56}
+                            height={56}
+                          />
                         </div>
                         <h3 className="text-xl font-medium text-white text-center leading-tight font-instrument">AI Chatbot Assistant</h3>
                       </div>
@@ -252,21 +258,21 @@ export default function Home() {
                         <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-80 h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                           <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">1</div>
                           <h3 className="font-medium mb-2 font-instrument">Book a Free Strategy Call</h3>
-                          <p className="text-contrast/80 font-sans font-normal">I discuss your needs and goals in a quick, no-pressure consult.</p>
+                          <p className="text-contrast/80 font-sans font-normal">I&apos;ll discuss your needs and goals in a quick, no-pressure consult.</p>
                         </motion.div>
                       </div>
                       <div style={{ position: 'absolute', left: 360, top: 130 }}>
                         <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-80 h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                           <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">2</div>
                           <h3 className="font-medium mb-2 font-instrument">I Build It Fast</h3>
-                          <p className="text-contrast/80 font-sans font-normal">Your automation is built with clear milestones and minimal effort required on your end.</p>
+                          <p className="text-contrast/80 font-sans font-normal">Your automation&apos;s built with clear milestones and minimal effort required on your end.</p>
                         </motion.div>
                       </div>
                       <div style={{ position: 'absolute', left: 720, top: 260 }}>
                         <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-80 h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                           <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">3</div>
                           <h3 className="font-medium mb-2 font-instrument">You Launch With Confidence</h3>
-                          <p className="text-contrast/80 font-sans font-normal">Everything's ready to go, with optional ongoing support if you need it.</p>
+                          <p className="text-contrast/80 font-sans font-normal">Everything&apos;s ready to go, with optional ongoing support if you need it.</p>
                         </motion.div>
                       </div>
                     </div>
@@ -276,17 +282,17 @@ export default function Home() {
                     <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-full max-w-xs h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                       <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">1</div>
                       <h3 className="font-medium mb-2 font-instrument">Book a Free Strategy Call</h3>
-                      <p className="text-contrast/80 font-sans font-normal">I discuss your needs and goals in a quick, no-pressure consult.</p>
+                      <p className="text-contrast/80 font-sans font-normal">I&apos;ll discuss your needs and goals in a quick, no-pressure consult.</p>
                     </motion.div>
                     <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-full max-w-xs h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                       <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">2</div>
                       <h3 className="font-medium mb-2 font-instrument">I Build It Fast</h3>
-                      <p className="text-contrast/80 font-sans font-normal">Your automation is built with clear milestones and minimal effort required on your end.</p>
+                      <p className="text-contrast/80 font-sans font-normal">Your automation&apos;s built with clear milestones and minimal effort required on your end.</p>
                     </motion.div>
                     <motion.div variants={cardVariant} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }} className="premium-glow-card flex flex-col items-center text-center p-8 w-full max-w-xs h-[260px]" style={{background: 'linear-gradient(180deg, #000 0%, #2a1d4c 100%)'}}>
                       <div className="w-16 h-16 aspect-square flex items-center justify-center rounded-full bg-primary/10 border border-primary/20 mb-4 text-white font-instrument font-medium text-xl">3</div>
                       <h3 className="font-medium mb-2 font-instrument">You Launch With Confidence</h3>
-                      <p className="text-contrast/80 font-sans font-normal">Everything's ready to go, with optional ongoing support if you need it.</p>
+                      <p className="text-contrast/80 font-sans font-normal">Everything&apos;s ready to go, with optional ongoing support if you need it.</p>
                     </motion.div>
                   </div>
                 </section>
