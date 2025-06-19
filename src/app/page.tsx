@@ -1,11 +1,11 @@
 "use client";
-import HeroSection from '../../components/HeroSection';
-import Footer from '../../components/Footer';
+import HeroSection from '../components/HeroSection';
+import Footer from '../components/Footer';
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import LogoGroup from '../../components/LogoGroup';
-import MorphingShape from '../../components/MorphingShape';
-import OrganicShaderBackground from '../../components/OrganicShaderBackground';
+import LogoGroup from '../components/LogoGroup';
+import MorphingShape from '../components/MorphingShape';
+import OrganicShaderBackground from '../components/OrganicShaderBackground';
 import WhyItWorksSpinner from '../components/WhyItWorksSpinner';
 import Image from 'next/image';
 

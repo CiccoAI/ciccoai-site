@@ -8,7 +8,7 @@ import "@fontsource/instrument-sans/500.css";
 import "@fontsource/instrument-sans/600.css";
 import "@fontsource/instrument-sans/700.css";
 import "./globals.css";
-import Navbar from '../../components/Navbar';
+import Navbar from '../components/Navbar';
 
 export const metadata: Metadata = {
   title: "Create Next App",
