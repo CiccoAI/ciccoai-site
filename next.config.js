@@ -15,6 +15,12 @@ const nextConfig = {
     });
     return config;
   },
+  // Vercel-specific settings
+  generateBuildId: async () => {
+    return 'ciccoai-site'
+  },
+  poweredByHeader: false,
+  compress: true,
 };
 
 module.exports = nextConfig; 
